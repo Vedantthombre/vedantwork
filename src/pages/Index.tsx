@@ -1,9 +1,8 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Github, Linkedin, Mail, Phone, Code, User, Briefcase, FileText } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, Code, User, Briefcase, FileText, ArrowDown, Sparkles } from 'lucide-react';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -94,38 +93,96 @@ const Index = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Enhanced Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-orange-900/20"></div>
-        <div className="absolute top-20 left-20 w-32 h-32 bg-blue-500/10 rounded-full blur-xl"></div>
-        <div className="absolute bottom-20 right-20 w-48 h-48 bg-orange-500/10 rounded-full blur-xl"></div>
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/10 to-orange-900/20"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-500/5 rounded-full blur-2xl animate-pulse delay-500"></div>
+        </div>
+        
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-20 w-2 h-2 bg-blue-400 rounded-full opacity-60 animate-bounce"></div>
+        <div className="absolute top-40 right-32 w-1 h-1 bg-orange-400 rounded-full opacity-40 animate-bounce delay-300"></div>
+        <div className="absolute bottom-32 left-40 w-1.5 h-1.5 bg-purple-400 rounded-full opacity-50 animate-bounce delay-700"></div>
         
         <div className="container mx-auto px-6 text-center relative z-10">
-          <div className="animate-fade-in">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6">
-              Hello, I'm{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">
-                Vedant Thombre
-              </span>
-            </h1>
-            <h2 className="text-2xl md:text-3xl text-gray-300 mb-4">Full Stack Python Developer</h2>
-            <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-              Passionate about solving complex problems with innovative tech solutions
-            </p>
-            <div className="flex justify-center space-x-4">
+          <div className="animate-fade-in max-w-5xl mx-auto">
+            {/* Greeting Badge */}
+            <div className="inline-flex items-center gap-2 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full px-4 py-2 mb-8">
+              <Sparkles className="h-4 w-4 text-yellow-400" />
+              <span className="text-gray-300 text-sm">Available for new opportunities</span>
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            </div>
+
+            {/* Main Heading */}
+            <div className="mb-8">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight">
+                <span className="block text-gray-200 mb-2">Hello, I'm</span>
+                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 bg-clip-text text-transparent animate-pulse">
+                  Vedant Thombre
+                </span>
+              </h1>
+              
+              {/* Animated Role Text */}
+              <div className="relative">
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-gray-300 mb-2">
+                  Full Stack 
+                  <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent ml-3">
+                    Python Developer
+                  </span>
+                </h2>
+                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-400 to-orange-400 rounded-full"></div>
+              </div>
+            </div>
+
+            {/* Enhanced Description */}
+            <div className="mb-12 max-w-3xl mx-auto">
+              <p className="text-xl md:text-2xl text-gray-400 leading-relaxed mb-6">
+                Passionate about solving complex problems with 
+                <span className="text-blue-400 font-semibold"> innovative tech solutions</span>
+              </p>
+              <div className="flex flex-wrap justify-center gap-3 text-sm">
+                <Badge variant="secondary" className="bg-blue-600/20 text-blue-300 border-blue-500/30">
+                  Django Expert
+                </Badge>
+                <Badge variant="secondary" className="bg-orange-600/20 text-orange-300 border-orange-500/30">
+                  Python Developer
+                </Badge>
+                <Badge variant="secondary" className="bg-purple-600/20 text-purple-300 border-purple-500/30">
+                  Problem Solver
+                </Badge>
+              </div>
+            </div>
+
+            {/* Enhanced CTA Buttons */}
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
               <Button 
                 onClick={() => scrollToSection('projects')}
-                className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-3 text-lg"
+                className="group bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
               >
-                View My Work
+                <span>View My Work</span>
+                <ArrowDown className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
               </Button>
               <Button 
                 variant="outline" 
                 onClick={() => scrollToSection('contact')}
-                className="border-gray-600 text-gray-300 hover:bg-gray-800 px-8 py-3 text-lg"
+                className="border-2 border-gray-600 text-gray-300 hover:bg-gray-800/50 hover:border-blue-400 hover:text-blue-400 px-8 py-4 text-lg font-semibold backdrop-blur-sm transition-all duration-300"
               >
                 Get in Touch
               </Button>
+            </div>
+
+            {/* Scroll Indicator */}
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-gray-500 text-sm">Scroll to explore</span>
+                <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
+                  <div className="w-1 h-3 bg-blue-400 rounded-full mt-2 animate-bounce"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
