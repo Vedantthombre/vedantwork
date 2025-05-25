@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -95,7 +94,7 @@ const Index = () => {
       </nav>
 
       {/* Enhanced Hero Section with Profile Image */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24">
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/10 to-orange-900/20"></div>
@@ -105,93 +104,90 @@ const Index = () => {
         </div>
         
         {/* Floating Elements */}
-        <div className="absolute top-20 left-20 w-2 h-2 bg-blue-400 rounded-full opacity-60 animate-bounce"></div>
-        <div className="absolute top-40 right-32 w-1 h-1 bg-orange-400 rounded-full opacity-40 animate-bounce delay-300"></div>
+        <div className="absolute top-32 left-20 w-2 h-2 bg-blue-400 rounded-full opacity-60 animate-bounce"></div>
+        <div className="absolute top-52 right-32 w-1 h-1 bg-orange-400 rounded-full opacity-40 animate-bounce delay-300"></div>
         <div className="absolute bottom-32 left-40 w-1.5 h-1.5 bg-purple-400 rounded-full opacity-50 animate-bounce delay-700"></div>
         
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="animate-fade-in max-w-6xl mx-auto">
-            {/* Profile Image Section */}
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-12 mb-12">
+            {/* Profile Image Section - Centered and Fully Visible */}
+            <div className="flex flex-col items-center justify-center mb-16">
               {/* Profile Image */}
-              <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+              <div className="relative group mb-12">
+                <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
                 <div className="relative">
                   <img 
                     src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952" 
                     alt="Vedant Thombre" 
-                    className="w-48 h-48 lg:w-64 lg:h-64 rounded-full object-cover border-4 border-gray-800 shadow-2xl transition-transform duration-300 group-hover:scale-105"
+                    className="w-80 h-80 rounded-full object-cover border-4 border-gray-800 shadow-2xl transition-transform duration-300 group-hover:scale-105 relative z-10"
                   />
                   <div className="absolute inset-0 rounded-full bg-gradient-to-t from-blue-500/10 to-transparent"></div>
                 </div>
               </div>
 
-              {/* Text Content */}
-              <div className="text-center lg:text-left">
-                {/* Greeting Badge */}
-                <div className="inline-flex items-center gap-2 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full px-4 py-2 mb-6">
-                  <Sparkles className="h-4 w-4 text-yellow-400" />
-                  <span className="text-gray-300 text-sm">Available for new opportunities</span>
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                </div>
+              {/* Greeting Badge */}
+              <div className="inline-flex items-center gap-2 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full px-6 py-3 mb-8">
+                <Sparkles className="h-5 w-5 text-yellow-400" />
+                <span className="text-gray-300 text-lg">Available for new opportunities</span>
+                <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+              </div>
 
-                {/* Main Heading */}
-                <div className="mb-6">
-                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
-                    <span className="block text-gray-200 mb-2">Hello, I'm</span>
-                    <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 bg-clip-text text-transparent animate-pulse">
-                      Vedant Thombre
-                    </span>
-                  </h1>
-                  
-                  {/* Animated Role Text */}
-                  <div className="relative">
-                    <h2 className="text-xl md:text-3xl lg:text-4xl font-semibold text-gray-300 mb-2">
-                      Full Stack 
-                      <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent ml-3">
-                        Python Developer
-                      </span>
-                    </h2>
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 lg:left-0 lg:transform-none w-24 h-1 bg-gradient-to-r from-blue-400 to-orange-400 rounded-full"></div>
-                  </div>
-                </div>
-
-                {/* Enhanced Description */}
-                <div className="mb-8">
-                  <p className="text-lg md:text-xl text-gray-400 leading-relaxed mb-4">
-                    Passionate about solving complex problems with 
-                    <span className="text-blue-400 font-semibold"> innovative tech solutions</span>
-                  </p>
-                  <div className="flex flex-wrap justify-center lg:justify-start gap-3 text-sm">
-                    <Badge variant="secondary" className="bg-blue-600/20 text-blue-300 border-blue-500/30">
-                      Django Expert
-                    </Badge>
-                    <Badge variant="secondary" className="bg-orange-600/20 text-orange-300 border-orange-500/30">
+              {/* Main Heading */}
+              <div className="mb-8">
+                <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold mb-6 leading-tight">
+                  <span className="block text-gray-200 mb-4">Hello, I'm</span>
+                  <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 bg-clip-text text-transparent animate-pulse">
+                    Vedant Thombre
+                  </span>
+                </h1>
+                
+                {/* Animated Role Text */}
+                <div className="relative">
+                  <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-gray-300 mb-4">
+                    Full Stack 
+                    <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent ml-4">
                       Python Developer
-                    </Badge>
-                    <Badge variant="secondary" className="bg-purple-600/20 text-purple-300 border-purple-500/30">
-                      Problem Solver
-                    </Badge>
-                  </div>
+                    </span>
+                  </h2>
+                  <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-orange-400 rounded-full mx-auto"></div>
                 </div>
+              </div>
 
-                {/* Enhanced CTA Buttons */}
-                <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                  <Button 
-                    onClick={() => scrollToSection('projects')}
-                    className="group bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
-                  >
-                    <span>View My Work</span>
-                    <ArrowDown className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    onClick={() => scrollToSection('contact')}
-                    className="border-2 border-gray-600 text-gray-300 hover:bg-gray-800/50 hover:border-blue-400 hover:text-blue-400 px-8 py-4 text-lg font-semibold backdrop-blur-sm transition-all duration-300"
-                  >
-                    Get in Touch
-                  </Button>
+              {/* Enhanced Description */}
+              <div className="mb-10">
+                <p className="text-xl md:text-2xl text-gray-400 leading-relaxed mb-6 max-w-3xl mx-auto">
+                  Passionate about solving complex problems with 
+                  <span className="text-blue-400 font-semibold"> innovative tech solutions</span>
+                </p>
+                <div className="flex flex-wrap justify-center gap-4 text-base">
+                  <Badge variant="secondary" className="bg-blue-600/20 text-blue-300 border-blue-500/30 px-4 py-2">
+                    Django Expert
+                  </Badge>
+                  <Badge variant="secondary" className="bg-orange-600/20 text-orange-300 border-orange-500/30 px-4 py-2">
+                    Python Developer
+                  </Badge>
+                  <Badge variant="secondary" className="bg-purple-600/20 text-purple-300 border-purple-500/30 px-4 py-2">
+                    Problem Solver
+                  </Badge>
                 </div>
+              </div>
+
+              {/* Enhanced CTA Buttons */}
+              <div className="flex flex-col sm:flex-row justify-center gap-6">
+                <Button 
+                  onClick={() => scrollToSection('projects')}
+                  className="group bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-10 py-5 text-xl font-semibold shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
+                >
+                  <span>View My Work</span>
+                  <ArrowDown className="ml-3 h-6 w-6 group-hover:translate-y-1 transition-transform" />
+                </Button>
+                <Button 
+                  variant="outline" 
+                  onClick={() => scrollToSection('contact')}
+                  className="border-2 border-gray-600 text-gray-300 hover:bg-gray-800/50 hover:border-blue-400 hover:text-blue-400 px-10 py-5 text-xl font-semibold backdrop-blur-sm transition-all duration-300"
+                >
+                  Get in Touch
+                </Button>
               </div>
             </div>
 
