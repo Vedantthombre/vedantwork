@@ -149,7 +149,7 @@ const Index = () => {
                 <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 rounded-full blur-lg opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
                 <div className="relative">
                   <img 
-                    src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952" 
+                    src="https://i.postimg.cc/T36Ssh1h/t-patil.jpg" 
                     alt="Vedant Thombre" 
                     className="w-32 h-32 lg:w-40 lg:h-40 rounded-full object-cover border-4 border-white shadow-2xl transition-transform duration-300 group-hover:scale-105 relative z-10"
                   />
@@ -254,7 +254,7 @@ const Index = () => {
                 <div className="relative group mx-auto w-fit">
                   <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-orange-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
                   <img 
-                    src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952" 
+                    src="https://i.postimg.cc/T36Ssh1h/t-patil.jpg" 
                     alt="Vedant Thombre - Professional" 
                     className="relative w-80 h-96 object-cover rounded-2xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
                   />
