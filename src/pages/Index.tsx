@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,6 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Github, Linkedin, Mail, Phone, Code, User, Briefcase, FileText, ArrowDown, Sparkles } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -16,6 +17,8 @@ const Index = () => {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const skills = [
     { name: 'Python', level: 90 },
@@ -84,12 +87,44 @@ const Index = () => {
     });
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission here
-    alert('Thank you for your message! I will get back to you soon.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      // Initialize EmailJS
+      emailjs.init('oHTC0QR5Ij1Ev83zG');
+
+      // Send email using EmailJS
+      await emailjs.send(
+        'service_ip0y2up', // Service ID
+        'template_5vgsgkg', // Template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_name: 'Vedant Thombre',
+        }
+      );
+
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+
+      // Reset form
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      toast({
+        title: "Failed to send message",
+        description: "Something went wrong. Please try again or contact me directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -161,7 +196,7 @@ const Index = () => {
               <div className="text-left lg:text-left order-1 lg:order-2">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                   <span className="block text-gray-800 mb-4">Hello, I'm</span>
-                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                     Vedant Thombre
                   </span>
                 </h1>
@@ -463,6 +498,7 @@ const Index = () => {
                             onChange={handleFormChange}
                             className="border-gray-300 focus:border-blue-500"
                             required
+                            disabled={isSubmitting}
                           />
                         </div>
                         <div className="space-y-2">
@@ -475,6 +511,7 @@ const Index = () => {
                             onChange={handleFormChange}
                             className="border-gray-300 focus:border-blue-500"
                             required
+                            disabled={isSubmitting}
                           />
                         </div>
                       </div>
@@ -487,6 +524,7 @@ const Index = () => {
                           onChange={handleFormChange}
                           className="border-gray-300 focus:border-blue-500"
                           required
+                          disabled={isSubmitting}
                         />
                       </div>
                       <div className="space-y-2">
@@ -498,13 +536,15 @@ const Index = () => {
                           onChange={handleFormChange}
                           className="border-gray-300 focus:border-blue-500 min-h-[120px]"
                           required
+                          disabled={isSubmitting}
                         />
                       </div>
                       <Button 
                         type="submit" 
                         className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white py-3 text-lg font-semibold"
+                        disabled={isSubmitting}
                       >
-                        Send Message
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
                       </Button>
                     </form>
                   </CardContent>
